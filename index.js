@@ -81,12 +81,12 @@ const runCandidateKeys = () => {
 	}
 	const split = calculatorService.splitRHS(fds);
 	const keys = calculatorService.getCandidateKeys(schema, split);
-	const keysArray = Array.from(keys);
+	console.log(keys);
 	if (keys.length === 0) {
 		document.getElementById("keys-result").textContent =
 			"No candidate keys found.";
 	} else {
-		document.getElementById("keys-result").textContent = keysArray
+		document.getElementById("keys-result").textContent = keys
 			.map((k) => `{${k.join(", ")}}`)
 			.join("\n");
 	}
