@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>FD Calculator</title>
+		<style>
+			body {
+				font-family: monospace;
+				max-width: 800px;
+				margin: 40px auto;
+				padding: 0 20px;
+				background: #f9f9f9;
+				color: #222;
+			}
+			h1 {
+				font-size: 1.2rem;
+				border-bottom: 2px solid #222;
+				padding-bottom: 8px;
+			}
+			h2 {
+				font-size: 1rem;
+				margin-top: 32px;
+			}
+			label {
+				display: block;
+				margin: 8px 0 4px;
+				font-size: 0.85rem;
+				color: #555;
+			}
+			input,
+			textarea {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 6px 8px;
+				font-family: monospace;
+				font-size: 0.9rem;
+				border: 1px solid #bbb;
+				background: #fff;
+			}
+			textarea {
+				height: 100px;
+				resize: vertical;
+			}
+			button {
+				margin-top: 10px;
+				padding: 6px 16px;
+				font-family: monospace;
+				font-size: 0.9rem;
+				background: #222;
+				color: #fff;
+				border: none;
+				cursor: pointer;
+			}
+			button:hover {
+				background: #444;
+			}
+			.result {
+				margin-top: 12px;
+				padding: 10px;
+				background: #fff;
+				border: 1px solid #ccc;
+				font-size: 0.9rem;
+				white-space: pre-wrap;
+				min-height: 36px;
+			}
+			.hint {
+				font-size: 0.78rem;
+				color: #888;
+				margin-top: 4px;
+			}
+			hr {
+				margin: 40px 0;
+				border: none;
+				border-top: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Functional Dependencies Calculator</h1>
+		<p class="hint">
+			Enter FDs one per line in the format: <strong>A,B -> C</strong> or
+			<strong>A -> B,C</strong>
+		</p>
+
+		<label>Set of Functional Dependencies</label>
+		<textarea
+			id="fds-input"
+			placeholder="A,B -> C&#10;C -> D&#10;D -> E"
+		></textarea>
+
+		<hr />
+
+		<h2>1. Closure of a set of attributes (X⁺)</h2>
+		<label>Attributes (comma separated)</label>
+		<input type="text" id="closure-attrs" placeholder="A,B" />
+		<button id="closure-btn">Calculate Closure</button>
+		<div class="result" id="closure-result">—</div>
+
+		<hr />
+
+		<h2>2. Minimal Cover</h2>
+		<button id="minimal-cover-btn">Calculate Minimal Cover</button>
+		<div class="result" id="minimal-result">—</div>
+
+		<hr />
+
+		<h2>3. Candidate Keys</h2>
+		<label>Relational Schema (comma separated)</label>
+		<input type="text" id="schema-input" placeholder="A,B,C,D,E" />
+		<button id="candidate-keys-btn">Calculate Candidate Keys</button>
+		<div class="result" id="keys-result">—</div>
+		<script type="module" src="index.js"></script>
+	</body>
+</html>
